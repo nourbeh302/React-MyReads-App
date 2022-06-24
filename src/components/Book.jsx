@@ -1,4 +1,4 @@
-export const Book = () =>
+export const Book = ({ details }) =>
 (
   <li>
     <div className="book">
@@ -8,12 +8,12 @@ export const Book = () =>
           style={{
             width: 128,
             height: 193,
-            backgroundImage: `url("")`
+            backgroundImage: `url(${details.imageLinks ? details.imageLinks.thumbnail : ""})`
           }}
         />
         <div className="book-shelf-changer">
           <select
-            value="none"
+            value={details.shelf ? details.shelf : "none"}
           >
             <option value="move" disabled>
               Move to...
@@ -25,8 +25,10 @@ export const Book = () =>
           </select>
         </div>
       </div>
-      <div className="book-title">The Great Gatsby</div>
-      <div className="book-authors">F. Scott Fitzgerald</div>
+      <div className="book-title">{details.title}</div>
+      <div className="book-authors">
+        {details.authors ? details.authors.join() : "Untitled"}
+      </div>
     </div>
   </li>
 )
