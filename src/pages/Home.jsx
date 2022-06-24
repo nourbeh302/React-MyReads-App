@@ -1,1 +1,8 @@
-export const Home = () => <h1>Home</h1>
+import { Shelf } from "../components/Shelf";
+
+export const Home = () =>
+(<div className="Home">
+  <Shelf />
+  <Shelf />
+  <Shelf />
+</div>)
