@@ -11,20 +11,22 @@ export const Home = ({ books }) =>
     </div>
     <div className="list-books-content">
       <Shelf
-        books={books}
+        books={books.filter((book) => book.shelf === "currentlyReading")}
         title="Currently Reading"
       />
       <Shelf
-        books={books}
+        books={books.filter((book) => book.shelf === "wantToRead")}
         title="Want To Read"
       />
       <Shelf
-        books={books}
+        books={books.filter((book) => book.shelf === "read")}
         title="Read"
       />
     </div>
     <div className="open-search">
-      <Link to="/search"></Link>
+      <Link to="/search">
+        <button></button>
+      </Link>
     </div>
   </div>
 );
